@@ -37,6 +37,7 @@
 <?php
 	if(isset($_POST["submit"]))
 	{
+		//en esta parte es para agregar la imagen a la base de datos
 	$filename = ($_FILES["imagen"]["name"]);
 	$tempname = ($_FILES["imagen"]["tmp_name"]);    
 	$folder = $_SERVER['DOCUMENT_ROOT'].'/xmen/image/' .$filename;
