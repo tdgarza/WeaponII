@@ -1,5 +1,5 @@
 body{
-	background-color: yellow;
+	background-color: blue;
 }
 .titulo{
 font-family: arial;
@@ -89,10 +89,11 @@ text-align: center;
 .nombre{
     height: 20px;
     width: 300px;
-    background-color: blue;
+    background-color: yellow;
     position: relative;
     top: 20px;
     font-family: 'Courier New', Courier, monospace;
+    font-size: 50px;
 }
 .linea{
     display: block;
