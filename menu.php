@@ -1,5 +1,4 @@
 <?php
-
 	// Connect to database
 	$con = mysqli_connect("localhost","root","","xmen");
 	
@@ -8,8 +7,6 @@
 	// Get all the categories from category table
 	$sql = "SELECT * FROM `equipoazul`";
 	$all_categories = mysqli_query($con,$sql);
-
-	
 ?>
 
 
@@ -30,12 +27,9 @@
 				// use a while loop to fetch data
 				// from the $all_categories variable
 				// and individually display as an option
-				while ($category = mysqli_fetch_array(
-						$all_categories,MYSQLI_ASSOC)):;
+				while ($category = mysqli_fetch_array($all_categories,MYSQLI_ASSOC)):;
 			?>
-				<option value="<?php echo $category["id"];
-			
-				?>">
+				<option value="<?php echo $category["id"];?>">
 					<?php echo $category["nombre"];
 						// To show the category name to the user
 					?>
@@ -51,21 +45,21 @@
 	<br>
 	<?php
     
-  $host = "localhost";
-  $username = "root";
-  $password = "";
-  $basededatos ="xmen";
+	$host = "localhost";
+	$username = "root";
+	$password = "";
+	$basededatos ="xmen";
+	 
+  
+  $conexion = mysqli_connect($host, $username, $password, $basededatos);
    
-
-$conexion = mysqli_connect($host, $username, $password, $basededatos);
- 
-if($conexion->connect_errno > 0){
-    die('Error: No es posible establecer la conexión: [' . $link->connect_error . ']');
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $stmt = $conn->prepare("SELECT id, nombre, nombrereal, poderes, primeraaparicion, bio, imagen FROM equipoazul");
-  $stmt->execute();
-}
+  if($conexion->connect_errno > 0){
+	  die('Error: No es posible establecer la conexión: [' . $link->connect_error . ']');
+	  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$stmt = $conn->prepare("SELECT id, nombre, nombrereal, poderes, primeraaparicion, bio, imagen FROM equipoazul");
+	$stmt->execute();
+  }
 
 $id=$conexion -> real_escape_string($_POST['id']);
 $extraerdato = $conexion->query("SELECT * FROM equipoazul where id=$id");
