@@ -84,6 +84,31 @@ $imagen = $fetch['imagen'];
 
 </div>
 
+<form method="POST">
 
+        <label>Select a Category</label>
+        <select name="nombre">
+            <?php 
+                // use a while loop to fetch data 
+                // from the $all_categories variable 
+                // and individually display as an option
+                while ($category = mysqli_fetch_array(
+                        $all_categories,MYSQLI_ASSOC)):; 
+            ?>
+                <option value="<?php echo $category["id"];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $category["nombre"];
+                        // To show the category name to the user
+                    ?>
+                </option>
+            <?php 
+                endwhile; 
+                // While loop must be terminated
+            ?>
+        </select>
+        <br>
+        <input type="submit" value="submit" name="submit">
+    </form>
 </body>
 </html> 
