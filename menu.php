@@ -45,7 +45,7 @@
 		<br>
 		<input type="submit" value="submit" name="submit">
 		<?php 
-		$extraerdato = $con->query("SELECT * FROM equipoazul");
+		$extraerdato = $con->query("SELECT * FROM equipoazulgit");
 		$fetch = mysqli_fetch_array($extraerdato);
 			 
 			echo $nombre = $fetch['nombre'];
