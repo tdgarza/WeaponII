@@ -1,6 +1,10 @@
 <?php
+	$host = "localhost";
+	$username = "root";
+	$password = "";
+	$basededatos ="xmen";
 	// Connect to database
-	$con = mysqli_connect("localhost","root","","xmen");
+	$con = mysqli_connect($host, $username, $password, $basededatos);
 	
 	// mysqli_connect("servername","username","password","database_name")
 
