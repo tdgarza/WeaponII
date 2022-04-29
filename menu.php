@@ -18,10 +18,7 @@
 	$sql = "SELECT * FROM `equipoazul`";
 	$all_categories = mysqli_query($con,$sql);
 
-	
 ?>
-
-
 	<form method="POST" action="menu.php">
 		<label>Select a Category</label>
 		<select name="Category">
@@ -42,20 +39,18 @@
 		</select>
 		<br>
 		
-		
 		<?php 
 		$id=$con -> real_escape_string($_POST['id']);
 		$extraerdato = $con->query("SELECT * FROM equipoazul");
 		$fetch = mysqli_fetch_array($extraerdato);
 			 
-			
-			echo $nombre = $fetch['nombre'];
-			echo $nombrereal = $fetch['nombrereal'];
-			echo $poderes = $fetch['poderes']; 
-			echo $primeraaparicion = $fetch['primeraaparicion'];
-			echo $bio = $fetch['bio']; 
+		echo $nombre = $fetch['nombre'];
+		echo $nombrereal = $fetch['nombrereal'];
+		echo $poderes = $fetch['poderes']; 
+		echo $primeraaparicion = $fetch['primeraaparicion'];
+		echo $bio = $fetch['bio']; 
 		  
-			?>
+		?>
 	</form>
 	<input type="submit" value="submit" name="submit">
 	<br>
