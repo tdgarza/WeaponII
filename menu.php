@@ -20,15 +20,13 @@
 
 	
 ?>
-	<form method="POST">
+
+
+	<form method="POST" action="menu.php">
 		<label>Select a Category</label>
 		<select name="Category">
 			<?php
-				// use a while loop to fetch data
-				// from the $all_categories variable
-				// and individually display as an option
-				while ($category = mysqli_fetch_array(
-						$all_categories,MYSQLI_ASSOC)):;
+				while ($category = mysqli_fetch_array($all_categories,MYSQLI_ASSOC)):;
 			?>
 				<option value="<?php echo $category["id"];
 			
@@ -43,15 +41,24 @@
 			?>
 		</select>
 		<br>
-		<input type="submit" value="submit" name="submit">
+		
+		
 		<?php 
-		$extraerdato = $con->query("SELECT * FROM equipoazulgit");
+		$id=$con -> real_escape_string($_POST['id']);
+		$extraerdato = $con->query("SELECT * FROM equipoazul");
 		$fetch = mysqli_fetch_array($extraerdato);
 			 
+			
 			echo $nombre = $fetch['nombre'];
-
+			echo $nombrereal = $fetch['nombrereal'];
+			echo $poderes = $fetch['poderes']; 
+			echo $primeraaparicion = $fetch['primeraaparicion'];
+			echo $bio = $fetch['bio']; 
+		  
 			?>
 	</form>
+	<input type="submit" value="submit" name="submit">
 	<br>
+	
 </body>
 </html>
