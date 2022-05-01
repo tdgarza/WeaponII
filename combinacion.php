@@ -43,7 +43,7 @@ class TableRows extends RecursiveIteratorIterator {
   }
 
   function current() {
-    return "<td style='width:150px;border:1px solid red;'>" . parent::current(). "</td>";
+    return "<td style='width:auto;border:1px solid red;'>" . parent::current(). "</td>";
   }
 
   function beginChildren() {
@@ -58,13 +58,15 @@ class TableRows extends RecursiveIteratorIterator {
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "php1tom";
+$dbname = "xmen";
 
 try {
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $stmt = $conn->prepare("SELECT * FROM post_category
-  INNER JOIN category WHERE post_category.category_id=category.id
+  $stmt = $conn->prepare("SELECT * FROM category
+  INNER JOIN post_category
+  WHERE category.id=post_category.id
+  
   ");
   $stmt->execute();
 
